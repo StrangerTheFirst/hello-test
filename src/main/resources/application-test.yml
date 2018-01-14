@@ -1,0 +1,9 @@
+embedded:
+  postgres:
+    credentials:
+      username: user
+      password: pass
+    net:
+      host: localhost
+      port: 9000
+    storage: postgres

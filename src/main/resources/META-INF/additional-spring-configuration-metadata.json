@@ -1,0 +1,29 @@
+{
+  "properties": [
+    {
+      "name": "embedded.postgres.credentials.username",
+      "type": "java.lang.String",
+      "description": "Description for embedded.postgres.credentials.username."
+    },
+    {
+      "name": "embedded.postgres.credentials.password",
+      "type": "java.lang.String",
+      "description": "Description for embedded.postgres.credentials.password."
+    },
+    {
+      "name": "embedded.postgres.net.host",
+      "type": "java.lang.String",
+      "description": "Description for embedded.postgres.net.host."
+    },
+    {
+      "name": "embedded.postgres.net.port",
+      "type": "java.lang.String",
+      "description": "Description for embedded.postgres.net.port."
+    },
+    {
+      "name": "embedded.postgres.storage",
+      "type": "java.lang.String",
+      "description": "Description for embedded.postgres.storage."
+    }
+  ]
+}
