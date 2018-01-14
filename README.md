@@ -7,7 +7,7 @@
 
 **1. Установка и конфигурация сервера PostgreSQL**
 
-    user: postgre
+    user: postgres
     password: 123456
     port: 5432
     
