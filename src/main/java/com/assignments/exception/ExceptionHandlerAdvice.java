@@ -47,4 +47,11 @@ public class ExceptionHandlerAdvice {
                 .status(HttpStatus.METHOD_NOT_ALLOWED)
                 .body(ApiResponse.error(e.getMessage()));
     }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<?> handleException(Exception e) {
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ApiResponse.error(e.getMessage()));
+    }
 }
