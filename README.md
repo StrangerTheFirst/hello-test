@@ -40,4 +40,4 @@ API документация
 
 **Получить список контактов, соответствующих регулярному выражению**
 
-    GET /hello/contacts?nameFilter=<regex>&page=<page_number>[&limit=<page_size>]
+    GET /hello/contacts?nameFilter=<regex>&offset=<offset>[&limit=<page_size>]
