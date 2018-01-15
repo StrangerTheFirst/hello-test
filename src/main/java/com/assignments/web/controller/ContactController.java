@@ -25,11 +25,11 @@ public class ContactController {
     @GetMapping
     public ResponseEntity<?> getContacts(
             @RequestParam("nameFilter") String nameFilter,
-            @RequestParam("page") Integer page,
+            @RequestParam("offset") Integer offset,
             @RequestParam(value = "limit", required = false) Integer limit) throws UnprocessableEntityException {
 
-        if (page < 0) {
-            page = 0;
+        if (offset < 0) {
+            offset = 0;
         }
 
         if (limit == null || limit <= 0 || limit > MAX_LIMIT) {
@@ -37,6 +37,6 @@ public class ContactController {
         }
 
         return ResponseEntity.ok(
-            contactService.findByNameRegex(nameFilter, page, limit));
+            contactService.findByNameRegex(nameFilter, offset, limit));
     }
 }

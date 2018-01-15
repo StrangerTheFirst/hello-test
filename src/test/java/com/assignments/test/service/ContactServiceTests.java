@@ -46,39 +46,27 @@ public class ContactServiceTests extends HelloControllerTestApplicationTests {
 
         contactRepository.save(contactsMock);
 
-        // Page 1
-        ContactListDto contactListDto = contactService.findByNameRegex("^B.*", 0, 2);
-        assertEquals(5, contactListDto.getTotalPages());
-        assertEquals(9, contactListDto.getTotalElements());
+        ContactListDto contactListDto = contactService.findByNameRegex("^B.*$", 0, 2);
+        assertEquals(7, contactListDto.getOffset());
 
         List<ContactDto> contacts = contactListDto.getContacts();
-        assertEquals("Barry B", contacts.get(0).getName());
+        assertEquals(2, contacts.size());
+        assertEquals("Adam Smith", contacts.get(0).getName());
+        assertEquals("Ivan Ivan", contacts.get(1).getName());
 
-        // Page 2
-        contactListDto = contactService.findByNameRegex("^B.*", 1, 2);
-        assertEquals(5, contactListDto.getTotalPages());
-        assertEquals(9, contactListDto.getTotalElements());
-
-        contacts = contactListDto.getContacts();
-        assertEquals("Bill Murrey", contacts.get(0).getName());
-        assertEquals("Bill Sharp", contacts.get(1).getName());
-
-        // Page 3
-        contactListDto = contactService.findByNameRegex("^B.*", 2, 2);
-        assertEquals(5, contactListDto.getTotalPages());
-        assertEquals(9, contactListDto.getTotalElements());
+        contactListDto = contactService.findByNameRegex("^B.*$", 7, 1);
+        assertEquals(8, contactListDto.getOffset());
 
         contacts = contactListDto.getContacts();
-        assertEquals("Bob Dylan", contacts.get(0).getName());
-        assertEquals("Bono", contacts.get(1).getName());
+        assertEquals(1, contacts.size());
+        assertEquals("Jack Daniels", contacts.get(0).getName());
 
-        // Page 3 (alternative)
-        contactListDto = contactService.findByNameRegex("^B.*", 2, 3);
-        assertEquals(3, contactListDto.getTotalPages());
-        assertEquals(9, contactListDto.getTotalElements());
+        contactListDto = contactService.findByNameRegex("^B.*$", 8, 10);
+        assertEquals(9, contactListDto.getOffset());
 
         contacts = contactListDto.getContacts();
-        assertEquals(0, contacts.size());
+        assertEquals(1, contacts.size());
+        assertEquals("John Doe", contacts.get(0).getName());
     }
 
     @Test(expected = UnprocessableEntityException.class)

@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Service
 public class ContactInitializer implements TableInitializer {
-    private final static int ROW_COUNT = 1000000;
+    private final static int ROW_COUNT = 100;
 
     private final ContactRepository contactRepository;
 

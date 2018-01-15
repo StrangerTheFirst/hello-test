@@ -9,7 +9,5 @@ import java.util.List;
 @AllArgsConstructor
 public class ContactListDto {
     private List<ContactDto> contacts;
-
-    private int totalPages;
-    private long totalElements;
+    private int offset;
 }
